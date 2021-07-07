@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './Button.module.css';
 import {ButtonProps} from "./Button.props";
+import ArrowIcon from './arrow.svg';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import cn from 'classnames';
 
-const Button = ({appearance, arrow, children, className, ...props}: ButtonProps): JSX.Element => {
+const Button = ({appearance, arrow = 'none', children, className, ...props}: ButtonProps): JSX.Element => {
     return (
         <>
             <button className={cn(styles.button, className,
@@ -16,9 +17,14 @@ const Button = ({appearance, arrow, children, className, ...props}: ButtonProps)
                     {...props}
             >
                 {children}
+                {arrow !== 'none' && <span className={cn(styles.arrow, {
+                    [styles.down]: arrow === 'down'
+                })}><ArrowIcon/></span>
+                }
             </button>
         </>
     );
-};
+}
+;
 
 export default Button;
