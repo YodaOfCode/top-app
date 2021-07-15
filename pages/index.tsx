@@ -11,7 +11,7 @@ const Home = (): JSX.Element => {
     const [rating, setRating] = useState<number>(4)
 
     useEffect(() => {
-        console.log('')
+        console.log('');
     }, []);
 
     return (
